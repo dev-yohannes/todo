@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  width: 300px;
+}
+
+.container h2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.container input {
+  padding: 2px;
+}
+
+.container button {
+  padding: 2px 5px;
+}
+
+.container ul {
+  margin-top: 20px;
+  list-style: none;
+}
+
+.container ul li {
+  background-color: #eee;
+  margin: 10px 0px;
+  padding: 5px;
+  width: 175px;
+}
