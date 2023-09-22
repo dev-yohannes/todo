@@ -8,8 +8,6 @@ const mainConditional = () => {
   ul.prepend(newLi);
 
   newLi.addEventListener("click", () => {
-    console.log("li clicked");
-    // newLi.style.textDecoration = "line-through";
     newLi.remove();
   });
 };
