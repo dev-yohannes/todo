@@ -13,7 +13,10 @@ const mainConditional = () => {
   });
 
   const editButton = document.createElement("button");
+  editButton.classList.add("edit-button");
+
   const saveButton = document.createElement("button");
+  saveButton.classList.add("save-button");
   saveButton.classList.add("hidden");
 
   newLi.addEventListener("mouseenter", () => {
@@ -35,7 +38,14 @@ const mainConditional = () => {
       saveButton.textContent = "Save";
       ul.append(saveButton);
 
-      saveButton.addEventListener("click", () => {});
+      saveButton.addEventListener("click", () => {
+        localStorage.setItem("updatedUserValue", newInputEdit.value);
+
+        newInputEdit.replaceWith(newLi);
+        newLi.textContent = localStorage.getItem("updatedUserValue");
+        saveButton.classList.add("hidden");
+        editButton.classList.add("hidden");
+      });
     });
   });
 };
