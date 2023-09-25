@@ -9,7 +9,8 @@ const mainConditional = () => {
   ul.prepend(newLi);
 
   newLi.addEventListener("click", () => {
-    newLi.remove();
+    // newLi.remove();
+    newLi.style.textDecoration = "line-through";
   });
 
   const editButton = document.createElement("button");
@@ -48,11 +49,11 @@ const mainConditional = () => {
       });
     });
   });
-};
 
-// newLi.addEventListener("mouseleave", () => {
-//   editButton.style.display = "none";
-// });
+  newLi.addEventListener("mouseleave", () => {
+    editButton.style.display = "none";
+  });
+};
 
 const checkingEmptyInput = () => {
   if (todoInput.value === "") {
