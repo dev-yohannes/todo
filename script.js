@@ -14,6 +14,7 @@ const mainConditional = () => {
 
   const editButton = document.createElement("button");
   const saveButton = document.createElement("button");
+  saveButton.classList.add("hidden");
 
   newLi.addEventListener("mouseenter", () => {
     editButton.textContent = "Edit";
@@ -21,6 +22,8 @@ const mainConditional = () => {
 
     editButton.addEventListener("click", () => {
       const newInputEdit = document.createElement("input");
+      newInputEdit.style.marginRight = "5px";
+      newInputEdit.classList.add("new-input-edit-input");
       newLi.innerHTML = newInputEdit.value;
       newInputEdit.setAttribute(
         "placeholder",
@@ -28,8 +31,11 @@ const mainConditional = () => {
       );
       newLi.replaceWith(newInputEdit);
 
+      saveButton.classList.remove("hidden");
       saveButton.textContent = "Save";
-      newLi.append(saveButton);
+      ul.append(saveButton);
+
+      saveButton.addEventListener("click", () => {});
     });
   });
 };
