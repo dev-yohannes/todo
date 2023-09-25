@@ -23,10 +23,12 @@ body {
 
 .container input {
   padding: 2px;
+  width: 60%;
 }
 
 .container button {
   padding: 2px 5px;
+  width: 35%;
 }
 
 .container ul {
@@ -36,7 +38,22 @@ body {
 
 .container ul li {
   background-color: #eee;
+  border-radius: 5px;
   margin: 10px 0px;
   padding: 5px;
-  width: 175px;
+  padding-left: 10px;
+  height: 50px;
+  /* width: 175px; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container ul li button {
+  /* margin-left: 45%; */
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 3px 10px;
 }
