@@ -50,7 +50,8 @@ body {
   justify-content: space-between;
 }
 
-.container ul li button {
+.container ul li .edit-button,
+.container ul li .save-button {
   /* margin-left: 45%; */
   background-color: white;
   border: 1px solid black;
