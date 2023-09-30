@@ -62,3 +62,11 @@ body {
 .hidden {
   display: none;
 }
+
+.edit-icon {
+  visibility: hidden;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
