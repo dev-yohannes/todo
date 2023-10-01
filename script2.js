@@ -8,8 +8,18 @@ const mainFunction = () => {
   newLi.innerHTML = `
   <li>
     <span class="li-span-text">${todoInput.value.trim()}</span>
-    <i class="fa-solid fa-pen-to-square edit-icon"></i>
+    <span class="icons">
+      <i class="fa-solid fa-pen-to-square edit-icon"></i>
+      <i class="fa-solid fa-check save-icon"></i>
+      <i class="fa-solid fa-trash-can delete-icon"></i>
+    </span>
   </li>`;
+
+  const newLiSaveIcon = newLi.querySelector(".save-icon");
+  newLiSaveIcon.style.display = "none";
+
+  const newLiDeleteIcon = newLi.querySelector(".delete-icon");
+  newLiDeleteIcon.style.cursor = "pointer";
 
   ul.prepend(newLi);
 
@@ -25,13 +35,37 @@ const mainFunction = () => {
   const newLiSpan = newLi.querySelector(".li-span-text");
   newLiSpan.style.cursor = "pointer";
 
-  const newLiIcon = newLi.querySelector(".edit-icon");
+  // adding edit icon
+  const newLiEditIcon = newLi.querySelector(".edit-icon");
 
   newLiSpan.addEventListener("click", (e) => {
     if (e.target.classList.contains("li-span-text")) {
-      newLiIcon.style.visibility = "visible";
-      newLiIcon.style.cursor = "pointer";
+      newLiEditIcon.style.visibility = "visible";
+      newLiEditIcon.style.cursor = "pointer";
     }
+  });
+
+  // replacing span to input
+  newLiEditIcon.addEventListener("click", () => {
+    newLiEditIcon.style.visibility = "hidden";
+    newLiSaveIcon.style.display = "inline-block";
+
+    const newInput = document.createElement("input");
+
+    newInput.setAttribute("placeholder", `${todoInput.value}`);
+    newLi.appendChild(newInput);
+    newLiSpan.replaceWith(newInput);
+
+    // saving new input value and adding it to the li
+    newLiSaveIcon.addEventListener("click", () => {
+      newLiSpan.textContent = newInput.value;
+      newInput.replaceWith(newLiSpan);
+      newLiSaveIcon.style.visibility = "hidden";
+    });
+  });
+
+  newLiDeleteIcon.addEventListener("click", () => {
+    newLi.remove();
   });
 };
 
@@ -40,6 +74,7 @@ const checkIfInputEmpty = () => {
     alert("Sorry, You need to fill the input");
   } else {
     mainFunction();
+    todoInput.value = "";
   }
 };
 
