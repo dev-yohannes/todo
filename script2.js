@@ -48,7 +48,7 @@ const mainFunction = () => {
   // replacing span to input
   newLiEditIcon.addEventListener("click", () => {
     newLiEditIcon.style.visibility = "hidden";
-    newLiSaveIcon.style.display = "inline-block";
+    newLiSaveIcon.style.display = "inline";
 
     const newInput = document.createElement("input");
 
@@ -60,7 +60,7 @@ const mainFunction = () => {
     newLiSaveIcon.addEventListener("click", () => {
       newLiSpan.textContent = newInput.value;
       newInput.replaceWith(newLiSpan);
-      newLiSaveIcon.style.visibility = "hidden";
+      newLiSaveIcon.style.display = "none";
     });
   });
 
