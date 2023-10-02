@@ -70,3 +70,7 @@ body {
 .line-through {
   text-decoration: line-through;
 }
+
+.icons i {
+  margin: 0 2px;
+}
