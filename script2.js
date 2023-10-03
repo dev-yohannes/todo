@@ -17,6 +17,7 @@ const mainFunction = () => {
 
   const newLiSaveIcon = newLi.querySelector(".save-icon");
   newLiSaveIcon.style.display = "none";
+  newLiSaveIcon.style.cursor = "pointer";
 
   const newLiDeleteIcon = newLi.querySelector(".delete-icon");
   newLiDeleteIcon.style.cursor = "pointer";
@@ -58,9 +59,13 @@ const mainFunction = () => {
 
     // saving new input value and adding it to the li
     newLiSaveIcon.addEventListener("click", () => {
-      newLiSpan.textContent = newInput.value;
-      newInput.replaceWith(newLiSpan);
-      newLiSaveIcon.style.display = "none";
+      if (newInput.value === "") {
+        alert("You need to write somthing before you save");
+      } else {
+        newLiSpan.textContent = newInput.value;
+        newInput.replaceWith(newLiSpan);
+        newLiSaveIcon.style.display = "none";
+      }
     });
   });
 
